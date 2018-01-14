@@ -1,30 +1,29 @@
-[![Docker Stars](https://img.shields.io/docker/stars/frolvlad/alpine-glibc.svg?style=flat-square)](https://hub.docker.com/r/frolvlad/alpine-glibc/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/frolvlad/alpine-glibc.svg?style=flat-square)](https://hub.docker.com/r/frolvlad/alpine-glibc/)
+[![Docker Size](https://images.microbadger.com/badges/image/metaa/node-alpine-glibc.svg)](http://microbadger.com/images/metaa/node-alpine-glibc "Get your own image badge on microbadger.com")
+[![Docker Stars](https://img.shields.io/docker/stars/metaa/node-alpine-glibc.svg)](https://hub.docker.com/r/metaa/node-alpine-glibc/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/metaa/node-alpine-glibc.svg)](https://hub.docker.com/r/metaa/node-alpine-glibc/)
 
 
-Alpine GNU C library (glibc) Docker image
+NodeJS:Alpine GNU C library (glibc) Docker image
 =========================================
 
-This image is based on Alpine Linux image, which is only a 5MB image, and contains glibc to enable
-proprietary projects compiled against glibc (e.g. OracleJDK, Anaconda) work on Alpine.
+This image is based on the [NodeJS image](https://hub.docker.com/_/node/) using Alpine Linux as its base (`node:alpine`):  
+[![](https://images.microbadger.com/badges/image/node:alpine.svg)](https://microbadger.com/images/node:alpine "Get your own image badge on microbadger.com")
+
+It adds glibc to it to enable proprietary projects compiled against glibc (e.g. OracleJDK, Anaconda) work on Alpine.
 
 This image includes some quirks to make [glibc](https://www.gnu.org/software/libc/) work side by
 side with musl libc (default in Alpine Linux). glibc packages for Alpine Linux are prepared by
 [Sasha Gerrand](https://github.com/sgerrand) and the releases are published in
 [sgerrand/alpine-pkg-glibc](https://github.com/sgerrand/alpine-pkg-glibc) github repo.
 
-Download size of this image is only:
-
-[![](https://images.microbadger.com/badges/image/frolvlad/alpine-glibc.svg)](http://microbadger.com/images/frolvlad/alpine-glibc "Get your own image badge on microbadger.com")
-
 
 Usage Example
 -------------
 
-This image is intended to be a base image for your projects, so you may use it like this:
+This image is intended to be a base image for your NodeJS projects, so you may use it like this:
 
 ```Dockerfile
-FROM frolvlad/alpine-glibc
+FROM metaa/node-alpine-glibc
 
 COPY ./my_app /usr/local/bin/my_app
 ```
@@ -33,7 +32,5 @@ COPY ./my_app /usr/local/bin/my_app
 $ docker build -t my_app .
 ```
 
-There are already several images using this image, so you can refer to them as usage examples:
+This is based on GitHub user [`frol`'s repository](https://github.com/frol/docker-alpine-glibc) that adds glibc to the [Alpine image](https://hub.docker.com/_/alpine/) rather than the [NodeJS image with Alpine](https://hub.docker.com/_/node/).
 
-* [`frolvlad/alpine-oraclejdk8`](https://hub.docker.com/r/frolvlad/alpine-oraclejdk8/) ([github](https://github.com/frol/docker-alpine-oraclejdk8))
-* [`frolvlad/alpine-mono`](https://hub.docker.com/r/frolvlad/alpine-mono/) ([github](https://github.com/frol/docker-alpine-mono))
